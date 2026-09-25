@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / local configuration
+.env
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Local downloads
+downloads/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Bundled FFmpeg binaries
+ffmpeg/
+
+# OS files
+.DS_Store
+Thumbs.db

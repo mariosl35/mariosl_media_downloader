@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>mariosl — Media Downloader</title>
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="header-inner">
+<a href="/" class="wordmark" aria-label="mariosl home">
+    <span class="dot" aria-hidden="true"></span>
+    mariosl
+</a>
+
+<nav class="site-nav">
+    <a href="/" class="nav-item {% if request.path == '/' %}active{% endif %}">index</a>
+    <a href="/supported" class="nav-item {% if request.path == '/supported' %}active{% endif %}">supported</a>
+</nav>
+    </div>
+</header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="eyebrow">01 / MEDIA</div>
+            <h1>MEDIA DOWNLOADER</h1>
+            <p>Download media. Keep it local.</p>
+        </section>
+
+        <section class="download-section">
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <span>MEDIA URL</span>
+            </div>
+
+            <div class="url-row">
+                <input
+                    id="url-input"
+                    type="url"
+                    placeholder="Paste a media URL..."
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+                <button id="fetch-btn" type="button">
+                    FETCH
+                </button>
+            </div>
+
+            <div id="info-card" class="preview-card hidden">
+                <div class="preview-thumb-wrap">
+                    <img id="preview-thumb" src="" alt="">
+                </div>
+
+                <div class="preview-info">
+                    <div class="preview-label">TITLE</div>
+                    <h2 id="preview-title">—</h2>
+
+                    <div class="preview-meta">
+                        <span id="preview-uploader">—</span>
+                        <span id="preview-duration">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="options-card" class="options-card hidden">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <span>OUTPUT</span>
+                </div>
+
+                <div class="type-toggle" id="type-toggle">
+                    <button
+                        id="pill-video"
+                        class="type-pill active"
+                        type="button"
+                        data-type="video"
+                    >
+                        VIDEO
+                    </button>
+
+                    <button
+                        id="pill-audio"
+                        class="type-pill"
+                        type="button"
+                        data-type="audio"
+                    >
+                        AUDIO
+                    </button>
+                </div>
+
+                <div id="audio-formats" class="audio-formats hidden">
+                    <button class="format-option active" type="button" data-format="mp3">
+                        MP3
+                    </button>
+
+                    <button class="format-option" type="button" data-format="wav">
+                        WAV
+                    </button>
+
+                    <button class="format-option" type="button" data-format="ogg">
+                        OGG
+                    </button>
+                </div>
+
+                <div id="quality-note" class="quality-note">
+                    Best available video and audio quality.
+                </div>
+
+                <button id="download-btn" class="download-button" type="button">
+                    <span id="download-btn-label">DOWNLOAD</span>
+                </button>
+            </div>
+
+            <div id="progress-card" class="progress-card hidden">
+                <div class="progress-header">
+                    <span id="progress-status">DOWNLOADING</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div id="complete-card" class="terminal-card success hidden">
+                <div class="terminal-label">COMPLETE</div>
+                <p id="complete-message">Download completed.</p>
+            </div>
+
+            <div id="error-card" class="terminal-card error hidden">
+                <div class="terminal-label">ERROR</div>
+                <p id="error-message">Something went wrong.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>mariosl / media downloader</span>
+        <span>LOCAL · NO TRACKING</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
